@@ -528,8 +528,7 @@ fig.update_layout(
 
     # 좌측 Y축: 광고비용
     yaxis = dict(
-        title      = "광고비용 (₩)",
-        titlefont  = dict(color="#4A6CF7", size=11),
+        title      = dict(text="광고비용 (₩)", font=dict(color="#4A6CF7", size=11)),
         tickfont   = dict(color="#6B7A9E", size=10),
         gridcolor  = "#1E2840",
         gridwidth  = 0.5,
@@ -541,8 +540,7 @@ fig.update_layout(
 
     # 우측 Y축: ROAS
     yaxis2 = dict(
-        title      = "ROAS (%)",
-        titlefont  = dict(color=ROAS_COLOR, size=11),
+        title      = dict(text="ROAS (%)", font=dict(color=ROAS_COLOR, size=11)),
         tickfont   = dict(color="#6B7A9E", size=10),
         overlaying = "y",
         side       = "right",
