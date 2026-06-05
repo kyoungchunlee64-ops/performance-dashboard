@@ -563,7 +563,7 @@ fig.update_layout(
         gridwidth   = 0.3,
         showline    = False,
         zeroline    = False,
-        rangeslider = dict(visible=True, bgcolor="#1A2035", bordercolor="#2A3550"),
+        rangeslider = dict(visible=False),
     ),
 
     # 여백
