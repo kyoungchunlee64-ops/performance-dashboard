@@ -55,25 +55,25 @@ html, body, [class*="css"] {
 
 /* ── 앱 최상위 배경 ── */
 .stApp {
-    background-color: #0F1117;
-    color: #E8EAF0;
+    background-color: #F7F8FC;
+    color: #1A1F36;
 }
 
 /* ── 사이드바 ── */
 section[data-testid="stSidebar"] {
-    background-color: #161B27;
-    border-right: 1px solid #252D3F;
+    background-color: #FFFFFF;
+    border-right: 1px solid #E4E7F0;
 }
-section[data-testid="stSidebar"] .css-1d391kg { padding: 1.5rem 1rem; }
 
 /* ── KPI 카드 컨테이너 ── */
 .kpi-card {
-    background: linear-gradient(145deg, #1A2035, #1E2840);
-    border: 1px solid #2A3550;
+    background: #FFFFFF;
+    border: 1px solid #E4E7F0;
     border-radius: 14px;
     padding: 1.4rem 1.6rem;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 .kpi-card::before {
     content: '';
@@ -83,7 +83,7 @@ section[data-testid="stSidebar"] .css-1d391kg { padding: 1.5rem 1rem; }
     border-radius: 14px 0 0 14px;
 }
 .kpi-card.blue::before  { background: #4A6CF7; }
-.kpi-card.mint::before  { background: #0ECAB8; }
+.kpi-card.mint::before  { background: #0AADA0; }
 .kpi-card.amber::before { background: #F79A4A; }
 
 .kpi-label {
@@ -91,21 +91,21 @@ section[data-testid="stSidebar"] .css-1d391kg { padding: 1.5rem 1rem; }
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #6B7A9E;
+    color: #8A93B2;
     margin-bottom: 0.5rem;
 }
 .kpi-value {
     font-size: 1.9rem;
     font-weight: 700;
-    color: #E8EAF0;
+    color: #1A1F36;
     line-height: 1;
 }
 .kpi-delta {
     font-size: 0.75rem;
     margin-top: 0.5rem;
-    color: #0ECAB8;
+    color: #0AADA0;
 }
-.kpi-delta.neg { color: #F7624A; }
+.kpi-delta.neg { color: #E53E3E; }
 
 /* ── 섹션 타이틀 ── */
 .section-title {
@@ -119,8 +119,8 @@ section[data-testid="stSidebar"] .css-1d391kg { padding: 1.5rem 1rem; }
 
 /* ── 차트 카드 ── */
 .chart-card {
-    background: #161B27;
-    border: 1px solid #252D3F;
+    background: #FFFFFF;
+    border: 1px solid #E4E7F0;
     border-radius: 16px;
     padding: 1.5rem;
 }
@@ -129,7 +129,7 @@ section[data-testid="stSidebar"] .css-1d391kg { padding: 1.5rem 1rem; }
 .js-plotly-plot .plotly { background: transparent !important; }
 
 /* ── 데이터프레임 스타일 ── */
-.stDataFrame { background: #161B27; border-radius: 12px; }
+.stDataFrame { background: #FFFFFF; border-radius: 12px; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -327,7 +327,7 @@ st.markdown("""
               color:#4A6CF7; font-weight:600; margin-bottom:0.3rem;">
         PERFORMANCE MARKETING
     </p>
-    <h1 style="font-size:1.8rem; font-weight:700; color:#E8EAF0; margin:0; line-height:1.2;">
+    <h1 style="font-size:1.8rem; font-weight:700; color:#1A1F36; margin:0; line-height:1.2;">
         광고 성과 대시보드
     </h1>
 </div>
@@ -494,7 +494,7 @@ fig.add_trace(go.Scatter(
     yaxis     = "y2",                        # 우측 Y축
     mode      = "lines+markers",
     line      = dict(color=ROAS_COLOR, width=2.5),
-    marker    = dict(size=5, color=ROAS_COLOR, line=dict(width=1.5, color="#0F1117")),
+    marker    = dict(size=5, color=ROAS_COLOR, line=dict(width=1.5, color="#FFFFFF")),
     hovertemplate = (
         "<b>ROAS</b><br>"
         "날짜: %{x|%Y-%m-%d}<br>"
@@ -506,10 +506,10 @@ fig.add_trace(go.Scatter(
 fig.update_layout(
     # 배경
     paper_bgcolor = "rgba(0,0,0,0)",
-    plot_bgcolor  = "rgba(0,0,0,0)",
+    plot_bgcolor  = "#FFFFFF",
 
     # 폰트
-    font = dict(family="Plus Jakarta Sans, sans-serif", color="#8A93B2", size=12),
+    font = dict(family="Plus Jakarta Sans, sans-serif", color="#4A5568", size=12),
 
     # 범례
     legend = dict(
@@ -518,7 +518,7 @@ fig.update_layout(
         y           = 1.02,
         xanchor     = "left",
         x           = 0,
-        font        = dict(size=11, color="#C0C8E0"),
+        font        = dict(size=11, color="#4A5568"),
         bgcolor     = "rgba(0,0,0,0)",
         bordercolor = "rgba(0,0,0,0)",
     ),
@@ -529,8 +529,8 @@ fig.update_layout(
     # 좌측 Y축: 광고비용
     yaxis = dict(
         title      = dict(text="광고비용 (₩)", font=dict(color="#4A6CF7", size=11)),
-        tickfont   = dict(color="#6B7A9E", size=10),
-        gridcolor  = "#1E2840",
+        tickfont   = dict(color="#8A93B2", size=10),
+        gridcolor  = "#EEF0F7",
         gridwidth  = 0.5,
         tickformat = ",.0f",
         tickprefix = "₩",
@@ -541,7 +541,7 @@ fig.update_layout(
     # 우측 Y축: ROAS
     yaxis2 = dict(
         title      = dict(text="ROAS (%)", font=dict(color=ROAS_COLOR, size=11)),
-        tickfont   = dict(color="#6B7A9E", size=10),
+        tickfont   = dict(color="#8A93B2", size=10),
         overlaying = "y",
         side       = "right",
         ticksuffix = "%",
@@ -555,9 +555,9 @@ fig.update_layout(
 
     # X축: 날짜
     xaxis = dict(
-        tickfont    = dict(color="#6B7A9E", size=10),
+        tickfont    = dict(color="#8A93B2", size=10),
         tickformat  = "%m/%d",
-        gridcolor   = "#1E2840",
+        gridcolor   = "#EEF0F7",
         gridwidth   = 0.3,
         showline    = False,
         zeroline    = False,
@@ -604,7 +604,7 @@ with tab1:
     pivot_spend.loc["합계"] = pivot_spend.sum()
     pivot_spend["합계"] = pivot_spend.sum(axis=1)
     # 숫자 포맷
-    fmt_spend = pivot_spend.applymap(lambda v: f"₩{v/1_000_000:.1f}M")
+    fmt_spend = pivot_spend.map(lambda v: f"₩{v/1_000_000:.1f}M")
     st.dataframe(fmt_spend, use_container_width=True)
 
 with tab2:
@@ -613,7 +613,7 @@ with tab2:
     )
     pivot_conv.loc["합계"] = pivot_conv.sum()
     pivot_conv["합계"] = pivot_conv.sum(axis=1)
-    fmt_conv = pivot_conv.applymap(lambda v: f"{int(v):,}")
+    fmt_conv = pivot_conv.map(lambda v: f"{int(v):,}")
     st.dataframe(fmt_conv, use_container_width=True)
 
 with tab3:
@@ -634,7 +634,7 @@ with tab3:
         pivot_roas_df.loc[ch, "합계"] = round(calc_roas(sub), 1)
     pivot_roas_df.loc["합계", "합계"] = round(total_roas, 1)
 
-    fmt_roas = pivot_roas_df.applymap(lambda v: f"{v:.1f}%")
+    fmt_roas = pivot_roas_df.map(lambda v: f"{v:.1f}%")
     st.dataframe(fmt_roas, use_container_width=True)
 
 
@@ -642,8 +642,8 @@ with tab3:
 # 11. 푸터
 # ─────────────────────────────────────────────
 st.markdown("""
-<div style="margin-top:3rem; padding:1rem 0; border-top:1px solid #252D3F;
-     text-align:center; font-size:0.72rem; color:#3A4560; letter-spacing:0.05em;">
+<div style="margin-top:3rem; padding:1rem 0; border-top:1px solid #E4E7F0;
+     text-align:center; font-size:0.72rem; color:#8A93B2; letter-spacing:0.05em;">
     PERFORMANCE DASHBOARD · Built with Streamlit + Plotly · Data refreshes on filter change
 </div>
 """, unsafe_allow_html=True)
